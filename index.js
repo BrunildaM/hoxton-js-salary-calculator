@@ -5,22 +5,37 @@ console.log(pensionContribution)
 let taxableAmount = grossSalary - pensionContribution
 console.log(taxableAmount)
 
-if (0 < taxableAmount < 80) {
-    firstTax = 0
-} 
+let firstTax = 0
+let secondTax
+let thirdTax
+let fourthTax 
 
-if (80 < taxableAmount < 250) {
-   secondTax = ((250-80)*0.04)
+
+if ( taxableAmount > 80 && taxableAmount < 250) {
+secondTax = ((taxableAmount - 80)* 0.04)} else 
+{
+  secondTax = ((250-80)*0.04)
 }
 
-if (250 < taxableAmount < 450) {
-    thirdTax = ((450-250)*0.08)
-}
+console.log(secondTax)
+   
 
-if (taxableAmount > 450) {
-    fourthTax = ((taxableAmount-450)*0.1)
-}
 
+if ( taxableAmount > 250 && taxableAmount < 450) {
+    thirdTax = ((taxableAmount - 250)* 0.08)} else 
+    {
+      thirdTax = ((450-250)*0.08)
+    }
+
+    console.log(thirdTax)
+  
+    if (taxableAmount > 450) {
+      fourthTax = ((taxableAmount-450)*0.1)
+    }
+
+    console.log(fourthTax)
+
+    Math.max(0, secondTax, thirdTax, fourthTax)
 
 let takeHomePay = taxableAmount - (firstTax + secondTax + thirdTax + fourthTax)
-console.log('Congratulations, your Take Home Pay is' + ' ' + takeHomePay)
+console.log(`Congratulations, your Take Home Pay is ${takeHomePay}`)
